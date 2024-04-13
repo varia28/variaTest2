@@ -1,12 +1,12 @@
 create table car_brands (
     id int unsigned,
-	title varchar(255)
+    title varchar(255)
 );
 
 create table car_models (
     id int unsigned,
-	car_brand_id int unsigned,
-	title varchar(255)
+    car_brand_id int unsigned,
+    title varchar(255)
 );
     
 create table users (
