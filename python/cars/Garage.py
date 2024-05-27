@@ -19,23 +19,28 @@ colors = ["red", "blue", "green", "black"]
 
 cars = []
 
-max_fuel = 0
-best_fuel_car = Car
-print("\n")
-for i in car_data:
-    car = Car(i,
-              car_data[i][random.randint(0, len(car_data[i]) - 1)],
-              colors[random.randint(0, len(colors) - 1)],
-              random.randint(8, 16))
-    car.drive(200)
-    car.fuel_up()
-    car.drive(100)
-    if car.get_fuel() > max_fuel:
-        max_fuel = car.get_fuel()
-        best_fuel_car = car
-    car.print_car()
-    cars.append(car)
+best_fuel_car = None
+print("\n--------------")
 
-print("\n\n best car \n\n")
+for i in car_data:
+
+    cars.append(
+        Car(i, car_data[i][random.randint(0, len(car_data[i]) - 1)], colors[random.randint(0, len(colors) - 1)],
+            random.randint(8, 16))
+    )
+
+    cars[len(cars) - 1].drive(200)
+    cars[len(cars) - 1].fuel_up()
+    cars[len(cars) - 1].drive(100)
+
+    if best_fuel_car is None:
+        best_fuel_car = cars[0]
+
+    if cars[len(cars) - 1].get_fuel() > best_fuel_car.get_fuel():
+        best_fuel_car = cars[len(cars) - 1]
+
+    cars[len(cars) - 1].print_car()
+
+print("\n\n best car \n\n--------------")
 
 best_fuel_car.print_car()

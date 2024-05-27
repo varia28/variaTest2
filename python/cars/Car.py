@@ -1,11 +1,11 @@
 class Car:
-    def __init__(self, brand, model, color, economy):
+    def __init__(self, brand, model, color, economy: float, fuel: int = 100, mileage: int = 0):
         self._brand = brand
         self._model = model
         self._color = color
-        self._economy = float(economy)
-        self._fuel = int(100)
-        self._mileage = int(0)
+        self._economy = economy
+        self._fuel = fuel
+        self._mileage = mileage
 
     def drive(self, distance):
         spent_fuel = distance * (self._economy / 100)
